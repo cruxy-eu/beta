@@ -1,0 +1,22 @@
+name: "Post Comment"
+description: "Posts a pull request comment"
+author: "Tom Verelst (cruxy.eu)"
+
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
+  number:
+    description: "The pull request number"
+    required: true
+  comment-body:
+    description: "The text of the comment (supports markdown)"
+    required: true
+
+outputs:
+  comment-url:
+    description: "The URL of the posted comment"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

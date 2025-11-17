@@ -1,0 +1,9 @@
+[package]
+name = "beta"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+tokio = { workspace = true }
+octocrab = { workspace = true }
+thiserror = { workspace = true }

@@ -1,0 +1,10 @@
+[package]
+name = "post-comment"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+beta = { path = "../core" }
+tokio = { workspace = true, features = ["macros"] }
+octocrab = { workspace = true }
+anyhow = "1"

@@ -1,8 +1,8 @@
+ARG ACTION_NAME
+
 # Stage 1: Builder
 FROM rust:1.91.1 AS builder
 WORKDIR /usr/src/app
-
-ARG ACTION_NAME
 
 # Add the MUSL target
 RUN rustup target add x86_64-unknown-linux-musl

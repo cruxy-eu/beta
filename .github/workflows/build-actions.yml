@@ -38,21 +38,17 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # Use the 'image' name from the matrix for the container
           images: ghcr.io/${{ github.repository }}/${{ matrix.action.image }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
           context: .
-          # Point to the single, reusable Dockerfile
           file: ./actions/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          # --- This is the magic ---
-          # Pass the matrix variables as ARGs to the Dockerfile
           build-args: |
             ACTION_NAME=${{ matrix.action.action }}

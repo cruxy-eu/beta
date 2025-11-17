@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
 
     strategy:
       fail-fast: false
@@ -38,7 +39,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/${{ matrix.action.image }}
+          images: ${{ matrix.action.image }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6

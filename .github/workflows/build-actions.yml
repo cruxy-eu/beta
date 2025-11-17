@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         action:
-          - { action: "post-comment", image: "cruxy-eu/beta/post-comment" }
+          - { action: "post-comment", image: "post-comment" }
 
     steps:
       - name: Checkout repository
@@ -39,7 +39,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ matrix.action.image }}
+          images: ghcr.io/cruxy-eu/beta
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6

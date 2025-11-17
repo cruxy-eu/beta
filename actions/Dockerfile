@@ -3,7 +3,7 @@ ARG ACTION_NAME
 FROM rust:1.91.1 AS builder
 ARG ACTION_NAME
 WORKDIR /usr/src/app
-
+RUN apt-get update && apt-get install -y musl-tools build-essential
 RUN rustup target add x86_64-unknown-linux-musl
 
 COPY . .

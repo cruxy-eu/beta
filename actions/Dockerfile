@@ -10,5 +10,5 @@ RUN cargo build --target x86_64-unknown-linux-musl --release --package ${ACTION_
 
 FROM --platform=linux/amd64 scratch
 ARG ACTION_NAME
-COPY --from=builder /usr/src/app/target/x86_64-unknown-linux-musl/release/${ACTION_NAME} /${ACTION_NAME}
-ENTRYPOINT ["/${ACTION_NAME}"]
+COPY --from=builder /usr/src/app/target/x86_64-unknown-linux-musl/release/${ACTION_NAME} /action
+ENTRYPOINT ["/action"]

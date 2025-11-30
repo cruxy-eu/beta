@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         action:
-          - { action: "post-comment", image: "post-comment" }
+          - { action: "post-comment", image: "beta-post-comment" }
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository_owner }}/beta-${{ matrix.action.image }}
+          images: ghcr.io/${{ github.repository_owner }}/${{ matrix.action.image }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr

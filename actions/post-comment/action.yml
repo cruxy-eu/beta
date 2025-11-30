@@ -9,7 +9,7 @@ inputs:
   number:
     description: "The pull request number"
     required: true
-  comment-body:
+  body:
     description: "The text of the comment (supports markdown)"
     required: true
 

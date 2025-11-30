@@ -1,4 +1,5 @@
 ARG ACTION_NAME
+ARG VERSION=latest
 FROM --platform=linux/amd64 rust:1.91.1 AS builder
 ARG ACTION_NAME
 WORKDIR /usr/src/app
